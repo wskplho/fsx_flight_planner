@@ -1,0 +1,17 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  id_country: 1
+  name: MyString
+  code: MyString
+  latitude: 1.5
+  longitude: 1.5
+  elevation: 1
+
+two:
+  id_country: 1
+  name: MyString
+  code: MyString
+  latitude: 1.5
+  longitude: 1.5
+  elevation: 1

@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  id_airport: 1
+  length: 1
+  elevation: 1
+  hard: false
+
+two:
+  id_airport: 1
+  length: 1
+  elevation: 1
+  hard: false
