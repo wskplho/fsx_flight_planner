@@ -5,3 +5,9 @@
 #
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
+
+require Rails.root.join('lib', 'fsx_dat_parser')
+parser = FsxDatParser.new
+parser.read_file Rails.root.join('public', 'resources', 'fs10.Airports.dat')
+parser.parse_countries
+parser.parse_airports

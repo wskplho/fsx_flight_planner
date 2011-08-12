@@ -1,17 +1,17 @@
 class CreateAirports < ActiveRecord::Migration
   def self.up
     create_table :airports do |t|
-      t.integer :id_country
+      t.integer :country_id
       t.string :name
       t.string :code
-      t.float :latitude
-      t.float :longitude
+      t.decimal :latitude, :precision => 12, :scale => 9
+      t.decimal :longitude, :precision => 12, :scale => 9
       t.integer :elevation
 
       t.timestamps
     end
 
-    add_index :airports, :id_country
+    add_index :airports, :country_id
   end
 
   def self.down

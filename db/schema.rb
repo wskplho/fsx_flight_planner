@@ -14,17 +14,17 @@
 ActiveRecord::Schema.define(:version => 20110812194406) do
 
   create_table "airports", :force => true do |t|
-    t.integer  "id_country"
+    t.integer  "country_id"
     t.string   "name"
     t.string   "code"
-    t.float    "latitude"
-    t.float    "longitude"
+    t.decimal  "latitude",   :precision => 12, :scale => 9
+    t.decimal  "longitude",  :precision => 12, :scale => 9
     t.integer  "elevation"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "airports", ["id_country"], :name => "index_airports_on_id_country"
+  add_index "airports", ["country_id"], :name => "index_airports_on_country_id"
 
   create_table "countries", :force => true do |t|
     t.string   "name"
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(:version => 20110812194406) do
   end
 
   create_table "runways", :force => true do |t|
-    t.integer  "id_airport"
+    t.integer  "airport_id"
     t.integer  "length"
     t.integer  "elevation"
     t.boolean  "hard"
@@ -41,6 +41,6 @@ ActiveRecord::Schema.define(:version => 20110812194406) do
     t.datetime "updated_at"
   end
 
-  add_index "runways", ["id_airport"], :name => "index_runways_on_id_airport"
+  add_index "runways", ["airport_id"], :name => "index_runways_on_airport_id"
 
 end

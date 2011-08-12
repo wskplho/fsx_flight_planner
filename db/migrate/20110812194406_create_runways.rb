@@ -1,7 +1,7 @@
 class CreateRunways < ActiveRecord::Migration
   def self.up
     create_table :runways do |t|
-      t.integer :id_airport
+      t.integer :airport_id
       t.integer :length
       t.integer :elevation
       t.boolean :hard
@@ -9,7 +9,7 @@ class CreateRunways < ActiveRecord::Migration
       t.timestamps
     end
 
-    add_index :runways, :id_airport
+    add_index :runways, :airport_id
   end
 
   def self.down

@@ -6,6 +6,9 @@ gem 'rails', '3.0.10.rc1'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'mysql2', '~> 0.2.11'
+gem 'meta_where'
+gem 'haml'
+gem 'sass'
 
 # Use unicorn as the web server
 # gem 'unicorn'
