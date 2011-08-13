@@ -1,0 +1,33 @@
+- title t('my.airports.title')
+
+= form_tag airports_two_airports_path do
+  %fieldset
+    %p
+      = label_tag 'codes[code1]', 'Kód 1'
+      = text_field_tag 'codes[code1]', params[:codes] ? params[:codes][:code1] : nil, 'data-autocomplete' => airports_autocomplete_airport_code_path
+    %p
+      = label_tag 'codes[code2]', 'Kód 2'
+      = text_field_tag 'codes[code2]', params[:codes] ? params[:codes][:code2] : nil, 'data-autocomplete' => airports_autocomplete_airport_code_path
+    %p= submit_tag 'Huuu'
+    - if @airport1.present? && @airport2.present?
+      %p= raw "#{ @airport1.code } &rarr; #{ @airport2.code } (#{ @airport1.distance_to @airport2 } NM)"
+
+= form_tag airports_two_nevim_path do
+  %fieldset
+    %p
+      = label_tag 'nevim[international]', 'Mezinárodní?'
+      = check_box_tag 'nevim[international]', nil, params[:nevim] ? params[:nevim][:international] : nil
+    %p
+      = label_tag 'nevim[country][country_id]', 'Země'
+      = collection_select 'nevim[country]', :country_id, Country.all, :id, :name, { :selected => params[:nevim] && params[:nevim][:country] ? params[:nevim][:country][:country_id] : nil, :include_blank => 'Náhodná' }
+    %p
+      = label_tag 'nevim[radius]', 'Rádius'
+      = text_field_tag 'nevim[radius]', params[:nevim] ? params[:nevim][:radius] : nil
+      NM
+    %p
+      = label_tag 'nevim[start]', 'Start'
+      = text_field_tag 'nevim[start]', params[:nevim] ? params[:nevim][:start] : nil, 'data-autocomplete' => airports_autocomplete_airport_code_path
+    %p
+      = label_tag 'nevim[finish]', 'Cíl'
+      = text_field_tag 'nevim[finish]', params[:nevim] ? params[:nevim][:finish] : nil, 'data-autocomplete' => airports_autocomplete_airport_code_path
+    %p= submit_tag 'Huuu'

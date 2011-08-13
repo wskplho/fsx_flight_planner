@@ -9,6 +9,7 @@ gem 'mysql2', '~> 0.2.11'
 gem 'meta_where'
 gem 'haml'
 gem 'sass'
+gem 'rails3-jquery-autocomplete'
 
 # Use unicorn as the web server
 # gem 'unicorn'
