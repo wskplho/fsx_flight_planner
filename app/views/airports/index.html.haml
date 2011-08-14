@@ -2,11 +2,17 @@
 
 %p
   = "Take a #{ @aircraft.name } (cruise speed #{ @aircraft.cruise_speed } kts)"
-  = "and fly from #{ @airport1.code }"
-  = "to #{ @airport2.code },"
+  %br
+  = "and fly from #{ @airport1.name_with_code }"
+  %br
+  = "to #{ @airport2.name_with_code },"
+  %br
   = "#{ @airport1.country.name },"
+  %br
   = "#{ @distance } NM,"
+  %br
   = "ETA #{ @eta }"
+  %br
 
 = form_for :nevim, :url => airports_two_nevim_path do |f|
   %fieldset

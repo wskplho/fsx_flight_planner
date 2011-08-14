@@ -30,7 +30,6 @@ ActiveRecord::Schema.define(:version => 20110813183349) do
     t.string   "name"
     t.string   "code"
     t.string   "name_with_code"
-    t.string   "string"
     t.decimal  "latitude",       :precision => 12, :scale => 9
     t.decimal  "longitude",      :precision => 12, :scale => 9
     t.integer  "elevation"

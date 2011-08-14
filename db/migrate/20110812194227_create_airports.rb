@@ -4,7 +4,7 @@ class CreateAirports < ActiveRecord::Migration
       t.integer :country_id
       t.string :name
       t.string :code
-      t.string :name_with_code, :string
+      t.string :name_with_code
       t.decimal :latitude, :precision => 12, :scale => 9
       t.decimal :longitude, :precision => 12, :scale => 9
       t.integer :elevation
