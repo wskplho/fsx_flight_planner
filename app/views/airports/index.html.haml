@@ -1,33 +1,29 @@
 - title t('my.airports.title')
 
-= form_tag airports_two_airports_path do
-  %fieldset
-    %p
-      = label_tag 'codes[code1]', 'Kód 1'
-      = text_field_tag 'codes[code1]', params[:codes] ? params[:codes][:code1] : nil, 'data-autocomplete' => airports_autocomplete_airport_code_path
-    %p
-      = label_tag 'codes[code2]', 'Kód 2'
-      = text_field_tag 'codes[code2]', params[:codes] ? params[:codes][:code2] : nil, 'data-autocomplete' => airports_autocomplete_airport_code_path
-    %p= submit_tag 'Huuu'
-    - if @airport1.present? && @airport2.present?
-      %p= raw "#{ @airport1.code } &rarr; #{ @airport2.code } (#{ @airport1.distance_to @airport2 } NM)"
+%p
+  = "Take a #{ @aircraft.name } (cruise speed #{ @aircraft.cruise_speed } kts)"
+  = "and fly from #{ @airport1.code }"
+  = "to #{ @airport2.code },"
+  = "#{ @airport1.country.name },"
+  = "#{ @distance } NM,"
+  = "ETA #{ @eta }"
 
-= form_tag airports_two_nevim_path do
+= form_for :nevim, :url => airports_two_nevim_path do |f|
   %fieldset
     %p
-      = label_tag 'nevim[international]', 'Mezinárodní?'
-      = check_box_tag 'nevim[international]', nil, params[:nevim] ? params[:nevim][:international] : nil
+      = f.label :international, 'Mezinárodní?'
+      = f.check_box :international
     %p
-      = label_tag 'nevim[country][country_id]', 'Země'
-      = collection_select 'nevim[country]', :country_id, Country.all, :id, :name, { :selected => params[:nevim] && params[:nevim][:country] ? params[:nevim][:country][:country_id] : nil, :include_blank => 'Náhodná' }
+      = f.label :country_id, 'Země'
+      = f.autocomplete_field :country, airports_autocomplete_country_name_path
     %p
-      = label_tag 'nevim[radius]', 'Rádius'
-      = text_field_tag 'nevim[radius]', params[:nevim] ? params[:nevim][:radius] : nil
+      = f.label :radius, 'Rádius'
+      = f.text_field :radius
       NM
     %p
-      = label_tag 'nevim[start]', 'Start'
-      = text_field_tag 'nevim[start]', params[:nevim] ? params[:nevim][:start] : nil, 'data-autocomplete' => airports_autocomplete_airport_code_path
+      = f.label :start, 'Start'
+      = f.autocomplete_field :start, airports_autocomplete_airport_name_with_code_path, :update_elements => { :code => '#nevim_start' }
     %p
-      = label_tag 'nevim[finish]', 'Cíl'
-      = text_field_tag 'nevim[finish]', params[:nevim] ? params[:nevim][:finish] : nil, 'data-autocomplete' => airports_autocomplete_airport_code_path
-    %p= submit_tag 'Huuu'
+      = f.label :finish, 'Cíl'
+      = f.autocomplete_field :finish, airports_autocomplete_airport_name_with_code_path, :update_elements => { :code => '#nevim_finish' }
+    %p= f.submit 'Huuu'

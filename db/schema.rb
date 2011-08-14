@@ -11,17 +11,30 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110812194406) do
+ActiveRecord::Schema.define(:version => 20110813183349) do
+
+  create_table "aircrafts", :force => true do |t|
+    t.string   "name"
+    t.integer  "range"
+    t.integer  "cruise_speed"
+    t.boolean  "jet",          :default => false
+    t.boolean  "propeller",    :default => false
+    t.boolean  "helicopter",   :default => false
+    t.boolean  "water",        :default => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "airports", :force => true do |t|
     t.integer  "country_id"
     t.string   "name"
     t.string   "code"
-    t.decimal  "latitude",   :precision => 12, :scale => 9
-    t.decimal  "longitude",  :precision => 12, :scale => 9
+    t.decimal  "latitude",       :precision => 12, :scale => 9
+    t.decimal  "longitude",      :precision => 12, :scale => 9
     t.integer  "elevation"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name_with_code"
   end
 
   add_index "airports", ["country_id"], :name => "index_airports_on_country_id"

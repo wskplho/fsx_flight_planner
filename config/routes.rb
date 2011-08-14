@@ -1,5 +1,7 @@
 Fsx::Application.routes.draw do
-  get 'airports/autocomplete_airport_code'
+  get 'airports/autocomplete_airport_name_with_code'
+  get 'airports/autocomplete_country_name'
+
   match 'airports' => 'airports#index', :as => :airports_index
   match 'airports/two_airports' => 'airports#two_airports', :as => :airports_two_airports
   match 'airports/nevim' => 'airports#nevim', :as => :airports_two_nevim

@@ -1,3 +1,9 @@
+GIT
+  remote: git://github.com/bseanvt/yaml_db.git
+  revision: 14ebdb79805d71501fbd742e52ad7887765138dc
+  specs:
+    yaml_db (0.2.0)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -39,12 +45,20 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    mechanize (2.0.1)
+      net-http-digest_auth (>= 1.1.1, ~> 1.1)
+      net-http-persistent (~> 1.8)
+      nokogiri (~> 1.4)
+      webrobots (>= 0.0.9, ~> 0.0)
     meta_where (1.0.4)
       activerecord (~> 3.0.0)
       activesupport (~> 3.0.0)
       arel (~> 2.0.7)
     mime-types (1.16)
     mysql2 (0.2.11)
+    net-http-digest_auth (1.1.1)
+    net-http-persistent (1.8.1)
+    nokogiri (1.5.0)
     polyglot (0.3.2)
     rack (1.2.3)
     rack-mount (0.6.14)
@@ -75,14 +89,18 @@ GEM
       polyglot
       polyglot (>= 0.3.1)
     tzinfo (0.3.29)
+    webrobots (0.0.11)
+      nokogiri (>= 1.4.4)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   haml
+  mechanize
   meta_where
   mysql2 (~> 0.2.11)
   rails (= 3.0.10.rc1)
   rails3-jquery-autocomplete
   sass
+  yaml_db!

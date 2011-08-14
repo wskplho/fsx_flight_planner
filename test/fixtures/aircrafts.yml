@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  range: 1
+  cruise_speed: 1
+  jet: false
+  propeller: false
+  helicopter: false
+  water: false
+
+two:
+  name: MyString
+  range: 1
+  cruise_speed: 1
+  jet: false
+  propeller: false
+  helicopter: false
+  water: false
