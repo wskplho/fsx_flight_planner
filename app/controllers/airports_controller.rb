@@ -1,5 +1,5 @@
 class AirportsController < ApplicationController
-  autocomplete :airport, :name_with_code, :full => true, :extra_data => [ :code ]
+  autocomplete :airport, :name_with_code, :full => true, :extra_data => [ :code ], :limit => 20
   autocomplete :country, :name, :full => true
 
   def index

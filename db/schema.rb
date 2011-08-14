@@ -29,12 +29,13 @@ ActiveRecord::Schema.define(:version => 20110813183349) do
     t.integer  "country_id"
     t.string   "name"
     t.string   "code"
+    t.string   "name_with_code"
+    t.string   "string"
     t.decimal  "latitude",       :precision => 12, :scale => 9
     t.decimal  "longitude",      :precision => 12, :scale => 9
     t.integer  "elevation"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "name_with_code"
   end
 
   add_index "airports", ["country_id"], :name => "index_airports_on_country_id"
