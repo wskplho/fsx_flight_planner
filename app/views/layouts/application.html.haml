@@ -4,7 +4,7 @@
     %meta{ :charset => 'utf-8' }
     %title= raw "#{ yield(:title) } &ndash; #{ t('my.title') }"
     = stylesheet_link_tag 'basic', 'layout', 'jquery-ui-1.8.15.custom'
-    = javascript_include_tag :defaults
+    = javascript_include_tag :defaults, 'http://maps.googleapis.com/maps/api/js?sensor=false'
     = csrf_meta_tag
     = yield(:head)
   %body{ :class => @class }

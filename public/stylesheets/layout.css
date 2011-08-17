@@ -1,1 +1,11 @@
-body			{ padding: 50px; }
+body {
+  padding: 50px; }
+
+table .latitude,
+table .longitude {
+  display: none; }
+
+#map_canvas {
+  width: 100%;
+  height: 600px;
+  border: solid 5px #eee; }

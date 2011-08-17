@@ -1,6 +1,8 @@
 class Airport < ActiveRecord::Base
   include Math
 
+  delegate :name, :to => :country, :prefix => true
+
   R = 6371 # km
   NAUTICAL_MILE = 1.852 # km
   RAD = Math::PI / 180
@@ -13,7 +15,6 @@ class Airport < ActiveRecord::Base
   validates :code, :presence => true, :uniqueness => true
 
   def self.random
-    #where(:id => (1..(count - 1)).to_a.sample).first
     order('RAND()').first
   end
 

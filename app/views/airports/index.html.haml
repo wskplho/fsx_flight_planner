@@ -1,35 +1,29 @@
 - title t('my.airports.title')
 
-%p
-  = "Take a #{ @aircraft.name } (cruise speed #{ @aircraft.cruise_speed } kts)"
-  %br
-  = "and fly from #{ @airport1.name_with_code }"
-  %br
-  = "to #{ @airport2.name_with_code },"
-  %br
-  = "#{ @airport1.country.name },"
-  %br
-  = "#{ @distance } NM,"
-  %br
-  = "ETA #{ @eta }"
-  %br
+= form_tag select_options_path do
+  %p
+    = label_tag :aircraft, 'Select an aircraft'
+    = select_tag :aircraft, options_for_select(Aircraft.all.map { |i| [ i.name, i.id ] }, params[:aircraft]), :include_blank => 'Choose'
+  %p
+    = label_tag :country, 'Select a country'
+    = select_tag :country, options_for_select(Country.all.map { |i| [ i.name, i.id ] }, params[:country]), :include_blank => 'Choose'
+  %p= submit_tag 'Select'
 
-= form_for :nevim, :url => airports_two_nevim_path do |f|
-  %fieldset
-    %p
-      = f.label :international, 'Mezinárodní?'
-      = f.check_box :international
-    %p
-      = f.label :country_id, 'Země'
-      = f.autocomplete_field :country, airports_autocomplete_country_name_path
-    %p
-      = f.label :radius, 'Rádius'
-      = f.text_field :radius
-      NM
-    %p
-      = f.label :start, 'Start'
-      = f.autocomplete_field :start, airports_autocomplete_airport_name_with_code_path, :update_elements => { :code => '#nevim_start' }
-    %p
-      = f.label :finish, 'Cíl'
-      = f.autocomplete_field :finish, airports_autocomplete_airport_name_with_code_path, :update_elements => { :code => '#nevim_finish' }
-    %p= f.submit 'Huuu'
+
+- if @first_waypoint.present?
+  %p= "Aircraft #{ @aircraft.name }"
+
+  %table
+    %thead
+      %tr
+        %th.code Code
+        %th.name Name
+        %th.country Country
+        %th.latitude Latitude
+        %th.longitude Longitude
+        %th.distance Distance
+        %th.total Total
+    %tbody
+      = print_waypoint @first_waypoint
+
+  #map_canvas

@@ -3,8 +3,8 @@ Fsx::Application.routes.draw do
   get 'airports/autocomplete_country_name'
 
   match 'airports' => 'airports#index', :as => :airports_index
-  match 'airports/two_airports' => 'airports#two_airports', :as => :airports_two_airports
-  match 'airports/nevim' => 'airports#nevim', :as => :airports_two_nevim
+  match 'airports/select-options' => 'airports#select_options', :as => :select_options
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
