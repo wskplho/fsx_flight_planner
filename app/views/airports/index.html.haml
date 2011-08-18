@@ -2,16 +2,21 @@
 
 = form_tag select_options_path do
   %p
-    = label_tag :aircraft, 'Select an aircraft'
-    = select_tag :aircraft, options_for_select(Aircraft.all.map { |i| [ i.name, i.id ] }, params[:aircraft]), :include_blank => 'Choose'
+    = label_tag :aircraft_name, 'Select an aircraft'
+    = autocomplete_field_tag :aircraft_name, params[:aircraft_name], airports_autocomplete_aircraft_name_path, :update_elements => { :code => '#nevim_start' }
+    = select_tag :aircraft_id, options_for_select(Aircraft.all.map { |i| [ i.name, i.id ] }, params[:aircraft_id]), :include_blank => 'Choose'
   %p
-    = label_tag :country, 'Select a country'
-    = select_tag :country, options_for_select(Country.all.map { |i| [ i.name, i.id ] }, params[:country]), :include_blank => 'Choose'
+    = label_tag :country_name, 'Select a country'
+    = autocomplete_field_tag :country_name, params[:country_name], airports_autocomplete_country_name_path, :update_elements => { :code => '#nevim_start' }
+    = select_tag :country_id, options_for_select(Country.all.map { |i| [ i.name, i.id ] }, params[:country_id]), :include_blank => 'Choose'
+  %p
+    = label_tag :no_of_waypoints, 'Number of waypoints'
+    = text_field_tag :no_of_waypoints, params[:no_of_waypoints].present? ? params[:no_of_waypoints] : 2, :size => 2
   %p= submit_tag 'Select'
 
 
 - if @first_waypoint.present?
-  %p= "Aircraft #{ @aircraft.name }"
+  %p= "Aircraft #{ @aircraft.name }, cruise speed #{ @aircraft.cruise_speed }, ETA #{ @eta }."
 
   %table
     %thead

@@ -1,14 +1,24 @@
 class AirportsController < ApplicationController
+  autocomplete :aircraft, :name, :full => true
   autocomplete :airport, :name_with_code, :full => true, :extra_data => [ :code ], :limit => 20
   autocomplete :country, :name, :full => true
 
   def index
-    
   end
 
   def select_options
-    @aircraft = Aircraft.find(params[:aircraft]) if params[:aircraft].present?
-    @country = Country.find(params[:country]) if params[:country].present?
+    if params[:aircraft_name].present?
+       @aircraft = Aircraft.where(:name.matches => params[:aircraft_name]).first
+    elsif params[:aircraft_id].present?
+      @aircraft = Aircraft.find params[:aircraft_id]
+    end
+
+    if params[:country_name].present?
+       @country = Country.where(:name.matches => params[:country_name]).first
+    elsif params[:country_id].present?
+      @country = Country.find params[:country_id]
+    end
+
     list
     render 'index'
   end
@@ -20,34 +30,14 @@ class AirportsController < ApplicationController
     modify_relation_by_aircraft!
     set_relation_order!
     @call_count = 0
-    5.times { create_waypoint! }
+    (params[:no_of_waypoints].present? ? params[:no_of_waypoints] : 2).to_i.times { create_waypoint! }
 
-    puts '========================='
-    p @airports.map(&:code)
-    puts '========================='
-
-    # #rel.where(:id.not_eq => @airport1.id, :country_id.eq => @airport1.country.id).each do |airport|
-    # rel.where(:id.not_eq => @airport1.id).each do |airport|
-    #   #puts "#{ airport.id }"
-    #   if @aircraft.helicopter
-    #     if airport.distance_to(@airport1) <= 50
-    #       @airport2 = airport
-    #       break
-    #     end
-    #   else
-    #     if airport.distance_to(@airport1) <= @aircraft.range
-    #       @airport2 = airport
-    #       break
-    #     end
-    #   end
-    # end
-    # 
-    # @distance = @airport1.distance_to @airport2
-    # t = (@distance.to_f / @aircraft.cruise_speed * 60 * 60).round
-    # mm, ss = t.divmod 60
-    # hh, mm = mm.divmod 60
-    # dd, hh = hh.divmod 24
-    # @eta = "#{ hh }:#{ mm } m"
+    @total_distance = find_total_distance @first_waypoint
+    t = (@total_distance.to_f / @aircraft.cruise_speed * 60 * 60).round
+    mm, ss = t.divmod 60
+    hh, mm = mm.divmod 60
+    dd, hh = hh.divmod 24
+    @eta = sprintf "%02d:%02d", hh, mm
   end
 
   protected
@@ -70,7 +60,6 @@ class AirportsController < ApplicationController
 
     def set_relation_order!
       @rel = @rel.order('RAND()')
-      #@rel = @rel.where(:country_id.eq => 69)
       @rel = @rel.where(:country_id.eq => @country.id) if @country
     end
 
@@ -97,11 +86,23 @@ class AirportsController < ApplicationController
     end
 
     def next_airport!
-      @next_airport = @rel.first
+      unless @airports.empty?
+        @rel = @rel.where(:country_id.eq => @first_waypoint.airport.country.id) if @aircraft.range < 500
+        @next_airport = @rel.where(:id.not_in => @airports.map(&:id)).first
+      else
+        @next_airport = @rel.first
+      end
     end
 
     def exclude_selected_airports!
       @airports << @next_airport
-      @rel = @rel.where(:id.not_in => @airports.map(&:id)) unless @airports.empty?
+    end
+
+    def find_total_distance(waypoint)
+      distance = waypoint.distance
+      if next_waypoint = waypoint.to
+        distance += find_total_distance(next_waypoint)
+      end
+      distance
     end
 end

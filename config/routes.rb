@@ -1,4 +1,5 @@
 Fsx::Application.routes.draw do
+  get 'airports/autocomplete_aircraft_name'
   get 'airports/autocomplete_airport_name_with_code'
   get 'airports/autocomplete_country_name'
 
