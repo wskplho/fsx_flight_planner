@@ -20,9 +20,9 @@ class Airport < ActiveRecord::Base
 
   def distance_to( other )
     raise "#{ other.inspect } is not an Airport!" unless other.is_a? Airport
-    dLat = (other.latitude - self.latitude) * RAD
-    dLong = (other.longitude - self.longitude) * RAD
-    a = sin(dLat / 2) ** 2 + sin(dLong / 2) ** 2 * cos(self.latitude * RAD) * cos(other.latitude * RAD)
+    d_lat = (other.latitude - self.latitude) * RAD
+    d_long = (other.longitude - self.longitude) * RAD
+    a = sin(d_lat / 2) ** 2 + sin(d_long / 2) ** 2 * cos(self.latitude * RAD) * cos(other.latitude * RAD)
     c = 2 * atan2( sqrt(a), sqrt(1 - a) )
     d = (R * c / NAUTICAL_MILE).round
   end

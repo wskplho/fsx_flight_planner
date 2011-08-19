@@ -14,7 +14,6 @@
     = text_field_tag :no_of_waypoints, params[:no_of_waypoints].present? ? params[:no_of_waypoints] : 2, :size => 2
   %p= submit_tag 'Select'
 
-
 - if @first_waypoint.present?
   %p= "Aircraft #{ @aircraft.name }, cruise speed #{ @aircraft.cruise_speed }, ETA #{ @eta }."
 

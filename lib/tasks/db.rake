@@ -26,7 +26,6 @@ namespace :db do
     task :dump_my do
       now = Time.now.strftime '%Y%m%d%H%M%S'
       dir = ENV['DIR'].blank? ? "dump_#{ now }" : "dump_#{ ENV['DIR'] }"
-      #env = ENV['RAILS_ENV'].blank? ? 'development' : ENV['RAILS_ENV']
       sh "rake db:data:dump_dir dir=#{ dir }"
     end
   end
