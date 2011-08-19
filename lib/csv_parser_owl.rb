@@ -8,7 +8,6 @@ class CsvParserOwl
 
   def initialize
     @codes = {}
-    @airports = Airport.all
   end
 
   def save
@@ -17,23 +16,17 @@ class CsvParserOwl
       return
     end
     CSV.foreach(CSV_FILE, :col_sep => '	') do |row|
-      @airport = nil
       code, name = row[7], row[3]
       next if code.blank? or name.blank?
       @code, @name = code.strip, name.strip
-
-      if already_saved
-        puts "#{ GREEN }!!! #{ @code } #{ @name } already saved#{ RESET }"
-        next
-      end
 
       unless airport_found
         puts "#{ RED }!!! #{ @code } not found#{ RESET }"
         next
       end
 
-      if already_has_a_name
-        puts "#{ GREEN }!!! #{ @airport.code } already has name#{ RESET }"
+      if already_saved
+        puts "#{ GREEN }!!! #{ @code } #{ @name } already saved#{ RESET }"
         next
       end
 
@@ -65,15 +58,11 @@ class CsvParserOwl
 
   protected
 
-    def already_saved
-      @airports.any? { |a| a.code == @code && a.name == @name }
-    end
-
     def airport_found
-      @airport = @airports.find { |a| a.code == @code }
+      @airport = Airport.where(:code.eq => @code).first
     end
 
-    def already_has_a_name
-      @airport.name.present?
+    def already_saved
+      @airport.code == @code && @airport.name == @name
     end
 end
