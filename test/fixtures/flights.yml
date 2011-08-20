@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  aircraft_name: MyString
+  aircraft_id: 1
+  country_name: MyString
+  country_id: 1
+  start: MyString
+  finish: MyString
+  no_of_waypoints: 1
+
+two:
+  aircraft_name: MyString
+  aircraft_id: 1
+  country_name: MyString
+  country_id: 1
+  start: MyString
+  finish: MyString
+  no_of_waypoints: 1

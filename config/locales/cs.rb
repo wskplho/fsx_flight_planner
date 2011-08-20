@@ -5,8 +5,12 @@
       :title => 'FSX',
       :go_to_home => 'Na úvodní stranu',
       :back => '← Zpět',
-      :airports => {
-        :title => 'Index',
+      :choose => 'Vyber',
+      :submit => 'Vytvoř',
+      :flights => {
+        :new => 'Nový plán',
+        :create => 'A jedem',
+        :cannot_find_next_waypoint => 'Bohužel nelze najít cestu až do <code>%{airport} %{country}</code>.'
       },
     },
 
@@ -167,6 +171,16 @@
           },
           :body  => "Následující pole obsahují chybně vyplněné údaje:"
         }
+      },
+      :attributes => {
+        :flight => {
+          :aircraft_name   => 'Vyber letadlo',
+          :aircraft_id     => 'Vyber letadlo',
+          :country_name    => 'Vyber zemi',
+          :country_id      => 'Vyber zemi',
+          :start_code      => 'Start',
+          :finish_code     => 'Finish',
+        },
       },
     }
   }

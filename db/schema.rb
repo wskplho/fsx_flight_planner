@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110813183349) do
+ActiveRecord::Schema.define(:version => 20110819214206) do
 
   create_table "aircrafts", :force => true do |t|
     t.string   "name"
@@ -41,6 +41,18 @@ ActiveRecord::Schema.define(:version => 20110813183349) do
 
   create_table "countries", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "flights", :force => true do |t|
+    t.string   "aircraft_name"
+    t.integer  "aircraft_id"
+    t.string   "country_name"
+    t.integer  "country_id"
+    t.string   "start_code"
+    t.string   "finish_code"
+    t.integer  "no_of_waypoints", :default => 2
     t.datetime "created_at"
     t.datetime "updated_at"
   end

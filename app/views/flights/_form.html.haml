@@ -1,0 +1,15 @@
+= form_for flight do |f|
+  %p
+    = f.label :aircraft_name
+    = f.autocomplete_field :aircraft_name, flights_autocomplete_aircraft_name_path
+    = f.collection_select :aircraft_id, Aircraft.all, :id, :name, :include_blank => t('my.choose')
+  %p
+    = f.label :country_name
+    = f.autocomplete_field :country_name, flights_autocomplete_country_name_path
+    = f.collection_select :country_id, Country.all, :id, :name, :include_blank => t('my.choose')
+  %p
+    = f.label :start
+    = f.autocomplete_field :start_code, flights_autocomplete_airport_name_with_code_path, :size => 4, :update_elements => { :code => '#flight_start_code' }
+    = f.label :finish
+    = f.autocomplete_field :finish_code, flights_autocomplete_airport_name_with_code_path, :size => 4, :update_elements => { :code => '#flight_finish_code' }
+  %p= f.submit t('my.submit')

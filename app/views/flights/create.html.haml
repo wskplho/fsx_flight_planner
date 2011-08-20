@@ -1,0 +1,21 @@
+- title raw "#{ @flight.start.name_with_code } #{ @flight.start.country.name } &rarr; #{ @flight.finish.name_with_code } #{ @flight.finish.country.name }"
+
+%p= "Aircraft #{ @flight.aircraft.name }, cruise speed #{ @flight.aircraft.cruise_speed }, range #{ @flight.aircraft.range }, ETA #{ @flight.eta }."
+
+= render 'form', :flight => @flight
+
+- if @flight.first_waypoint.present?
+  %table
+    %thead
+      %tr
+        %th.code Code
+        %th.name Name
+        %th.country Country
+        %th.latitude Latitude
+        %th.longitude Longitude
+        %th.distance Distance
+        %th.total Total
+    %tbody
+      = print_waypoint @flight.first_waypoint
+
+  #map_canvas

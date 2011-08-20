@@ -1,10 +1,9 @@
 Fsx::Application.routes.draw do
-  get 'airports/autocomplete_aircraft_name'
-  get 'airports/autocomplete_airport_name_with_code'
-  get 'airports/autocomplete_country_name'
+  get 'flights/autocomplete_aircraft_name'
+  get 'flights/autocomplete_airport_name_with_code'
+  get 'flights/autocomplete_country_name'
 
-  match 'airports' => 'airports#index', :as => :airports_index
-  match 'airports/select-options' => 'airports#select_options', :as => :select_options
+  resources :flights, :only => [ :new, :create ]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -55,7 +54,7 @@ Fsx::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'airports#index'
+  root :to => 'flights#new'
 
   # See how all your routes lay out with "rake routes"
 

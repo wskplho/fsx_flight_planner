@@ -14,10 +14,6 @@ class Airport < ActiveRecord::Base
 
   validates :code, :presence => true, :uniqueness => true
 
-  def self.random
-    order('RAND()').first
-  end
-
   def distance_to( other )
     raise "#{ other.inspect } is not an Airport!" unless other.is_a? Airport
     d_lat = (other.latitude - self.latitude) * RAD
@@ -29,7 +25,7 @@ class Airport < ActiveRecord::Base
 
   def fill_name_with_code
     if self.name && self.code
-      self.name_with_code = "#{ self.name } #{ self.code }"
+      self.name_with_code = "#{ self.code } #{ self.name }"
     elsif self.name
       self.name_with_code = self.name
     elsif self.code
