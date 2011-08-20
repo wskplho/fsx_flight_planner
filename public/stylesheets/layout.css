@@ -5,7 +5,8 @@ body {
   padding: 15px 20px; }
 
 .wrapper {
-  position: relative; }
+  position: relative;
+  clear: both; }
 
 .plan {
   float: right;
@@ -50,14 +51,9 @@ body {
   box-sizing: border-box; }
 
 .flash {
-  margin: 1em 0;
-  padding: 1em;
-  border: solid 1px #ddd;
-  background: #eee; }
-  .flash.notice {
-    border-color: #ecca6f;
-    background-color: #fff1cb; }
+  float: right;
+  margin: 0;
+  line-height: 25px;
+  font-weight: bold; }
   .flash.alert {
-    color: white;
-    border-color: #a20000;
-    background-color: #c93131; }
+    color: #a20000; }

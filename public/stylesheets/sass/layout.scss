@@ -9,7 +9,7 @@
 .clear								{ clear: both; }
 body								{ padding: 15px 20px; }
 
-.wrapper							{ position: relative; }
+.wrapper							{ position: relative; clear: both; }
 
 .plan {
 									  float: right; width: 30%; background: white;
@@ -34,7 +34,6 @@ body								{ padding: 15px 20px; }
 
 
 .flash {
-									  margin: 1em 0; padding: 1em; border: solid 1px #ddd; background: #eee;
-	&.notice						{ border-color: #ecca6f; background-color: #fff1cb; }
-	&.alert							{ color: white; border-color: #a20000; background-color: #c93131; }
+									  float: right; margin: 0; line-height: 25px; font-weight: bold;
+	&.alert							{ color: #a20000; }
 }
