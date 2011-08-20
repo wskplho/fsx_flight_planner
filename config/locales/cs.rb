@@ -7,10 +7,12 @@
       :back => '← Zpět',
       :choose => 'Vyber',
       :submit => 'Vytvoř',
+      :reset => 'Vynuluj',
       :flights => {
         :new => 'Nový plán',
         :create => 'A jedem',
-        :cannot_find_next_waypoint => 'Bohužel nelze najít cestu až do <code>%{airport} %{country}</code>.'
+        :span_title => 'Dolet %{range} NM, %{waypoints} waypointů',
+        :cannot_find_next_waypoint => 'Bohužel nelze najít cestu až do %{airport} %{country}.'
       },
     },
 
@@ -174,13 +176,23 @@
       },
       :attributes => {
         :flight => {
-          :aircraft_name   => 'Vyber letadlo',
-          :aircraft_id     => 'Vyber letadlo',
-          :country_name    => 'Vyber zemi',
-          :country_id      => 'Vyber zemi',
+          :aircraft_name   => 'Letadlo',
+          :aircraft_id     => 'Letadlo',
+          :country_name    => 'Země',
+          :country_id      => 'Země',
           :start_code      => 'Start',
-          :finish_code     => 'Finish',
+          :finish_code     => 'Cíl',
         },
+        :waypoint => {
+          :number    => 'Č.',
+          :code      => 'Kód',
+          :name      => 'Název',
+          :country   => 'Země',
+          :latitude  => 'Latitude',
+          :longitude => 'Longitude',
+          :distance  => 'Vzd.',
+          :total     => 'Celk.',
+        }
       },
     }
   }

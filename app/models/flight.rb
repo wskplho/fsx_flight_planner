@@ -2,6 +2,14 @@ class Flight < ActiveRecord::Base
   attr_accessor :aircraft_set, :country_set, :start_set, :finish_set, :first_waypoint, :total_distance, :eta, :cannot_find_next_waypoint
   attr_writer :aircraft, :country, :start, :finish
 
+  def start_code=(value)
+    write_attribute :start_code, value.upcase
+  end
+
+  def finish_code=(value)
+    write_attribute :finish_code, value.upcase
+  end
+
   def aircraft
     if !aircraft_set && (aircraft_name.present? || aircraft_id.present?)
       self.aircraft = Aircraft.where(:name.eq % self.aircraft_name | :id.eq % self.aircraft_id).first
@@ -47,6 +55,7 @@ class Flight < ActiveRecord::Base
   def make_plan
     @counter = 0
     @airports = []
+
     self.aircraft = Aircraft.random.first unless aircraft
     if country
       self.start = Airport.where(:country_id => country.id).random.first unless start
@@ -55,11 +64,18 @@ class Flight < ActiveRecord::Base
       self.start = Airport.random.first unless start
       self.finish = Airport.random.first unless finish
     end
+
+    write_attribute :aircraft_id, aircraft.id
+    write_attribute :start_code, start.code
+    write_attribute :finish_code, finish.code
+
     @rel = Airport.joins(:runways).includes(:country).group('`airports`.`id`')
     @rel = @rel.where(:runways => { :length.gt => 5000, :hard.eq => true }) if aircraft.jet
     @rel = @rel.where(:country_id.eq => country.id) if country
+
     spread_waypoints
     create_waypoints
+
     self.total_distance = find_total_distance @first_waypoint
     t = (total_distance.to_f / aircraft.cruise_speed * 60 * 60).round
     mm, ss = t.divmod 60

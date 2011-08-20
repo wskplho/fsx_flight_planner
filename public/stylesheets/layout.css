@@ -1,11 +1,63 @@
-body {
-  padding: 50px; }
+.clear {
+  clear: both; }
 
-table .latitude,
-table .longitude {
-  display: none; }
+body {
+  padding: 15px 20px; }
+
+.wrapper {
+  position: relative; }
+
+.plan {
+  float: right;
+  width: 30%;
+  background: white; }
+  .plan table {
+    width: 100%;
+    border-collapse: collapse; }
+    .plan table .latitude,
+    .plan table .longitude {
+      display: none; }
+    .plan table th,
+    .plan table td {
+      padding: 1px 3px;
+      font-size: 11px; }
+      .plan table th.number,
+      .plan table td.number {
+        text-align: center; }
+      .plan table th.name,
+      .plan table td.name {
+        width: 44%; }
+      .plan table th.distance, .plan table th.total,
+      .plan table td.distance,
+      .plan table td.total {
+        text-align: right; }
+    .plan table th {
+      text-align: left;
+      font-weight: normal;
+      background: #eee; }
+    .plan table tbody tr:nth-of-type(even) {
+      background: #f6f6f6; }
 
 #map_canvas {
-  width: 100%;
-  height: 600px;
-  border: solid 5px #eee; }
+  float: left;
+  width: 69%;
+  height: 520px;
+  border: solid 5px #eee;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box; }
+
+.flash {
+  margin: 1em 0;
+  padding: 1em;
+  border: solid 1px #ddd;
+  background: #eee; }
+  .flash.notice {
+    border-color: #ecca6f;
+    background-color: #fff1cb; }
+  .flash.alert {
+    color: white;
+    border-color: #a20000;
+    background-color: #c93131; }

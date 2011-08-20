@@ -1,3 +1,8 @@
 html		{ font: 12px/1.5em 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif; }
 
+h1			{ margin: 0 0 10px; font-size: 24px; line-height: 1.2em; font-weight: normal; }
+h1 span		{ border-bottom: dotted 1px black; cursor: help; }
+
+p			{ margin: 1em 0; }
+
 iframe		{ border: none; }

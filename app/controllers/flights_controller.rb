@@ -10,6 +10,6 @@ class FlightsController < ApplicationController
   def create
     @flight = Flight.new params[:flight]
     @flight.make_plan
-    flash.now[:notice] = t('my.flights.cannot_find_next_waypoint', :airport => @flight.finish.name_with_code, :country => @flight.finish.country.name) if @flight.cannot_find_next_waypoint
+    flash.now[:alert] = t('my.flights.cannot_find_next_waypoint', :airport => @flight.finish.name_with_code, :country => @flight.finish.country.name) if @flight.cannot_find_next_waypoint
   end
 end

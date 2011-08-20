@@ -1,21 +1,23 @@
-- title raw "#{ @flight.start.name_with_code } #{ @flight.start.country.name } &rarr; #{ @flight.finish.name_with_code } #{ @flight.finish.country.name }"
-
-%p= "Aircraft #{ @flight.aircraft.name }, cruise speed #{ @flight.aircraft.cruise_speed }, range #{ @flight.aircraft.range }, ETA #{ @flight.eta }."
+- title raw %(#{ @flight.start.code } &rarr; #{ @flight.finish.code }, #{ @flight.aircraft.name }, <span title="#{ t('my.flights.span_title', :range => @flight.aircraft.range, :waypoints => @flight.no_of_waypoints) }">#{ @flight.total_distance } NM</span>, #{ @flight.aircraft.cruise_speed } kts, #{ @flight.eta } h)
 
 = render 'form', :flight => @flight
 
 - if @flight.first_waypoint.present?
-  %table
-    %thead
-      %tr
-        %th.code Code
-        %th.name Name
-        %th.country Country
-        %th.latitude Latitude
-        %th.longitude Longitude
-        %th.distance Distance
-        %th.total Total
-    %tbody
-      = print_waypoint @flight.first_waypoint
+  .wrapper
+    .plan
+      %table
+        %thead
+          %tr
+            %th.number= t('activerecord.attributes.waypoint.number')
+            %th.code= t('activerecord.attributes.waypoint.code')
+            %th.name= t('activerecord.attributes.waypoint.name')
+            %th.country= t('activerecord.attributes.waypoint.country')
+            %th.latitude= t('activerecord.attributes.waypoint.latitude')
+            %th.longitude= t('activerecord.attributes.waypoint.longitude')
+            %th.distance= t('activerecord.attributes.waypoint.distance')
+            %th.total= t('activerecord.attributes.waypoint.total')
+        %tbody
+          = print_waypoint @flight.first_waypoint
 
-  #map_canvas
+    #map_canvas
+    .clear

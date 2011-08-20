@@ -3,6 +3,7 @@
 
 $(document).ready(function() {
   initialize();
+  watchResetLink();
 });
 
 function initialize()
@@ -10,6 +11,9 @@ function initialize()
   var mapJquery = $('#map_canvas'),
       waypoints = [],
       rows = $('table tbody tr');
+
+  if ( !mapJquery.length )
+    return;
 
   rows.each(function(){
     var row = $(this),
@@ -60,4 +64,20 @@ function initialize()
       });
 
   flightPath.setMap(map);
+}
+
+function watchResetLink()
+{
+  $('.reset').click(function(){
+    var start = $('#flight_start_code'),
+        finish = $('#flight_finish_code'),
+        aircraft = $('#flight_aircraft_id'),
+        country = $('#flight_country_name');
+
+    start.val('');
+    finish.val('');
+    aircraft.find('option:selected').attr('selected', false);
+    country.val('');
+    return false;
+  });
 }

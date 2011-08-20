@@ -1,8 +1,40 @@
-body			{ padding: 50px; }
-
-table {
-	.latitude,
-	.longitude	{ display: none; }
+@mixin border-box {
+	-moz-box-sizing:    border-box;
+	-webkit-box-sizing: border-box;
+	-o-box-sizing:      border-box;
+	-ms-box-sizing:     border-box;
+	box-sizing:         border-box;
 }
 
-#map_canvas		{ width: 100%; height: 600px; border: solid 5px #eee; }
+.clear								{ clear: both; }
+body								{ padding: 15px 20px; }
+
+.wrapper							{ position: relative; }
+
+.plan {
+									  float: right; width: 30%; background: white;
+	table {
+									  width: 100%; border-collapse: collapse;
+		.latitude,
+		.longitude					{ display: none; }
+		th,
+		td {
+									  padding: 1px 3px; font-size: 11px;
+			&.number				{ text-align: center; }
+			&.name					{ width: 44%; }
+			&.distance,
+			&.total					{ text-align: right; }
+		}
+		th							{ text-align: left; font-weight: normal; background: #eee; }
+		tbody tr:nth-of-type(even)	{ background: #f6f6f6; }
+	}
+}
+
+#map_canvas							{ float: left; width: 69%; height: 520px; border: solid 5px #eee; @include border-box; }
+
+
+.flash {
+									  margin: 1em 0; padding: 1em; border: solid 1px #ddd; background: #eee;
+	&.notice						{ border-color: #ecca6f; background-color: #fff1cb; }
+	&.alert							{ color: white; border-color: #a20000; background-color: #c93131; }
+}
