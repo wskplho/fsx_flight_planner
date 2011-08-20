@@ -69,7 +69,8 @@ function initialize()
 function watchResetLink()
 {
   $('.reset').click(function(){
-    var start = $('#flight_start_code'),
+    var form = $('#new_flight'),
+        start = $('#flight_start_code'),
         finish = $('#flight_finish_code'),
         aircraft = $('#flight_aircraft_id'),
         country = $('#flight_country_name');
@@ -78,6 +79,7 @@ function watchResetLink()
     finish.val('');
     aircraft.find('option:selected').attr('selected', false);
     country.val('');
+    form.submit();
     return false;
   });
 }

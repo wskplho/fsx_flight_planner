@@ -1,0 +1,205 @@
+
+---
+aircrafts:
+  columns:
+  - id
+  - name
+  - range
+  - cruise_speed
+  - jet
+  - propeller
+  - helicopter
+  - water
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - AgustaWestland EH101
+    - 863
+    - 150
+    - false
+    - false
+    - true
+    - false
+    - 2011-08-19 17:12:09.000000000Z
+    - 2011-08-19 17:12:09.000000000Z
+  - - 2
+    - Airbus A321
+    - 2454
+    - 447
+    - true
+    - false
+    - false
+    - false
+    - 2011-08-19 17:12:09.000000000Z
+    - 2011-08-19 17:12:09.000000000Z
+  - - 3
+    - Beechcraft Baron 58
+    - 1569
+    - 200
+    - false
+    - true
+    - false
+    - false
+    - 2011-08-19 17:12:09.000000000Z
+    - 2011-08-19 17:12:09.000000000Z
+  - - 4
+    - Beechcraft King Air 350
+    - 1765
+    - 313
+    - false
+    - true
+    - false
+    - false
+    - 2011-08-19 17:12:09.000000000Z
+    - 2011-08-19 17:12:09.000000000Z
+  - - 5
+    - Bell 206B JetRanger
+    - 435
+    - 115
+    - false
+    - false
+    - true
+    - false
+    - 2011-08-19 17:12:09.000000000Z
+    - 2011-08-19 17:12:09.000000000Z
+  - - 6
+    - Boeing 737-800
+    - 3060
+    - 477
+    - true
+    - false
+    - false
+    - false
+    - 2011-08-19 17:12:09.000000000Z
+    - 2011-08-19 17:12:09.000000000Z
+  - - 7
+    - Boeing 747-400
+    - 7325
+    - 491
+    - true
+    - false
+    - false
+    - false
+    - 2011-08-19 17:12:09.000000000Z
+    - 2011-08-19 17:12:09.000000000Z
+  - - 8
+    - Boeing F/A-18 Hornet
+    - 1089
+    - 580
+    - true
+    - false
+    - false
+    - false
+    - 2011-08-19 17:12:09.000000000Z
+    - 2011-08-19 17:12:09.000000000Z
+  - - 9
+    - Bombardier CRJ700
+    - 1702
+    - 515
+    - true
+    - false
+    - false
+    - false
+    - 2011-08-19 17:12:09.000000000Z
+    - 2011-08-19 17:12:09.000000000Z
+  - - 10
+    - Bombardier Learjet 45
+    - 2200
+    - 464
+    - true
+    - false
+    - false
+    - false
+    - 2011-08-19 17:12:09.000000000Z
+    - 2011-08-19 17:12:09.000000000Z
+  - - 11
+    - Cessna C172SP Skyhawk
+    - 696
+    - 122
+    - false
+    - true
+    - false
+    - false
+    - 2011-08-19 17:12:09.000000000Z
+    - 2011-08-19 17:12:09.000000000Z
+  - - 12
+    - Cessna C208B Grand Caravan
+    - 1248
+    - 175
+    - false
+    - true
+    - false
+    - false
+    - 2011-08-19 17:12:09.000000000Z
+    - 2011-08-19 17:12:09.000000000Z
+  - - 13
+    - de Havilland Beaver DHC2
+    - 395
+    - 124
+    - false
+    - true
+    - false
+    - true
+    - 2011-08-19 17:12:09.000000000Z
+    - 2011-08-19 17:12:09.000000000Z
+  - - 14
+    - Douglas DC-3
+    - 1845
+    - 161
+    - false
+    - true
+    - false
+    - false
+    - 2011-08-19 17:12:09.000000000Z
+    - 2011-08-19 17:12:09.000000000Z
+  - - 15
+    - Grumman Goose G21A
+    - 695
+    - 166
+    - false
+    - true
+    - false
+    - true
+    - 2011-08-19 17:12:09.000000000Z
+    - 2011-08-19 17:12:09.000000000Z
+  - - 16
+    - Maule Orion
+    - 600
+    - 142
+    - false
+    - true
+    - false
+    - false
+    - 2011-08-19 17:12:09.000000000Z
+    - 2011-08-19 17:12:09.000000000Z
+  - - 17
+    - Mooney Bravo
+    - 1050
+    - 195
+    - false
+    - true
+    - false
+    - false
+    - 2011-08-19 17:12:09.000000000Z
+    - 2011-08-19 17:12:09.000000000Z
+  - - 18
+    - Piper J-3 Cub
+    - 190
+    - 73
+    - false
+    - true
+    - false
+    - false
+    - 2011-08-19 17:12:09.000000000Z
+    - 2011-08-19 17:12:09.000000000Z
+  - - 19
+    - Robinson R22 Beta II
+    - 200
+    - 96
+    - false
+    - false
+    - true
+    - false
+    - 2011-08-19 17:12:09.000000000Z
+    - 2011-08-19 17:12:09.000000000Z
