@@ -7,7 +7,8 @@
       :back => '← Zpět',
       :choose => 'Vyber',
       :submit => 'Vytvoř',
-      :reset => 'Náhoda',
+      :reset => 'Vynulovat',
+      :chance => 'Náhoda',
       :flights => {
         :new => 'Nový plán',
         :create => 'A jedem',

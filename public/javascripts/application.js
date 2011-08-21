@@ -3,7 +3,8 @@
 
 $(document).ready(function() {
   initialize();
-  watchResetLink();
+  watchResetLink($('.reset'));
+  watchChanceLink($('.chance'));
 });
 
 function initialize()
@@ -66,20 +67,33 @@ function initialize()
   flightPath.setMap(map);
 }
 
-function watchResetLink()
+function resetFields()
 {
-  $('.reset').click(function(){
-    var form = $('#new_flight'),
-        start = $('#flight_start_code'),
-        finish = $('#flight_finish_code'),
-        aircraft = $('#flight_aircraft_id'),
-        country = $('#flight_country_name');
+  var form = $('#new_flight'),
+      start = $('#flight_start_code'),
+      finish = $('#flight_finish_code'),
+      aircraft = $('#flight_aircraft_id'),
+      country = $('#flight_country_name');
 
-    start.val('');
-    finish.val('');
-    aircraft.find('option:selected').attr('selected', false);
-    country.val('');
-    form.submit();
+  start.val('');
+  finish.val('');
+  aircraft.find('option:selected').attr('selected', false);
+  country.val('');
+}
+
+function watchResetLink(jqueryObject)
+{
+  $(jqueryObject).click(function(){
+    resetFields();
+    return false;
+  });
+}
+
+function watchChanceLink(jqueryObject)
+{
+  $(jqueryObject).click(function(){
+    resetFields();
+    $('#new_flight').submit();
     return false;
   });
 }

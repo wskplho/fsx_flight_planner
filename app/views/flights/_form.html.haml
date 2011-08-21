@@ -7,3 +7,4 @@
     = f.collection_select :aircraft_id, Aircraft.all, :id, :name, :include_blank => Flight.human_attribute_name(:aircraft_name)
     = f.submit t('my.submit')
     = link_to t('my.reset'), '#', :class => 'reset'
+    = link_to t('my.chance'), '#', :class => 'chance'
