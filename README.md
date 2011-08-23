@@ -28,7 +28,7 @@ Open a browser and go to http://127.0.0.1:3000/.
 
 ## Seeding
 If you don't want to load data directly from YAML (that is `db:data:load:latest`),
-you will need to run rake db:seed, which populates the database manually.
+you will need to run `rake db:seed`, which populates the database manually.
 It does the following:
 
 * Saves aircrafts,
