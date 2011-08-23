@@ -24,10 +24,10 @@ en:
         start_code: Start
         finish_code: Finish
       waypoint:
-        number: No
+        number: No.
         code: Code
         name: Name
-        country: Countrz
+        country: Country
         latitude: Latitude
         longitude: Longitude
         distance: Dist.
