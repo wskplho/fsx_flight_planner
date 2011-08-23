@@ -1,4 +1,4 @@
-# FSX Random Airports Picker
+# FSX Flight Planner
 
 ## What is this?
 This is a Ruby on Rails application.
@@ -19,8 +19,8 @@ Ruby 1.9.2, Rails, MySQL, Apache2 etc.
 This means you better have a Linux/Mac laptop nearby.
 
 ## Fastest Installation
-    git clone git://github.com/ollie/fsx_random_airports_picker.git
-    cd fsx_random_airports_picker
+    git clone git://github.com/ollie/fsx_flight_planner.git
+    cd fsx_flight_planner
     bundle install
     rake db:create db:migrate db:data:load:latest
     rails s
