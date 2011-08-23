@@ -1,7 +1,7 @@
 require 'csv'
 
-class CsvParserOwl
-  CSV_FILE = Rails.root.join('public', 'resources', 'owl.csv')
+class AirportsCsvParser
+  CSV_FILE = Rails.root.join('public', 'resources', 'airports.csv')
   RED = "\e[0;31m"
   GREEN = "\e[0;32m"
   RESET = "\e[0m"

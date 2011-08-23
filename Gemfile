@@ -10,7 +10,6 @@ gem 'meta_where'
 gem 'haml'
 gem 'sass'
 gem 'rails3-jquery-autocomplete'
-gem 'mechanize'
 gem 'yaml_db', :git => 'git://github.com/bseanvt/yaml_db.git'
 gem 'randumb' # randomize records!
 

@@ -1,4 +1,4 @@
-- title raw %(#{ @flight.start.code } &rarr; #{ @flight.finish.code }, #{ @flight.aircraft.name }, <span title="#{ t('my.flights.span_title', :range => @flight.aircraft.range, :waypoints => @flight.no_of_waypoints) }">#{ @flight.total_distance } NM</span>, #{ @flight.aircraft.cruise_speed } kts, #{ @flight.eta } h)
+- title raw %(#{ @flight.start.code } → #{ @flight.finish.code }, #{ @flight.aircraft.name }, <span title="#{ t('my.flights.span_title', :range => @flight.aircraft.range, :waypoints => @flight.no_of_waypoints) }">#{ @flight.total_distance } NM</span>, #{ @flight.aircraft.cruise_speed } kts, #{ @flight.eta } h)
 
 = render 'form', :flight => @flight
 

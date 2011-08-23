@@ -6,7 +6,7 @@
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 
-%w(fsx_dat_parser csv_parser_owl).each { |file| require Rails.root.join('lib', file) }
+%w(fsx_dat_parser airports_csv_parser).each { |file| require Rails.root.join('lib', file) }
 
 unless Aircraft.count > 0
   aircraft = []
@@ -134,5 +134,5 @@ parser.read_file Rails.root.join('public', 'resources', 'fs10.Airports.dat')
 parser.parse_countries unless Country.count > 0
 parser.parse_airports unless Airport.count > 0
 
-CsvParserOwl.new.save
-CsvParserOwl.save_missing
+AirportsCsvParser.new.save
+AirportsCsvParser.save_missing
