@@ -2,5 +2,6 @@
 .rvmrc
 db/*.sqlite3
 config/database.yml
+config/deploy.rb
 log/*.log
 tmp/

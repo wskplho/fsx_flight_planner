@@ -56,13 +56,13 @@ class Flight < ActiveRecord::Base
     @counter = 0
     @airports = []
 
-    self.aircraft = Aircraft.random.first unless aircraft
+    self.aircraft = Aircraft.random unless aircraft
     if country
-      self.start = Airport.where(:country_id => country.id).random.first unless start
-      self.finish = Airport.where(:country_id => country.id).random.first unless finish
+      self.start = Airport.where(:country_id => country.id).random unless start
+      self.finish = Airport.where(:country_id => country.id).random unless finish
     else
-      self.start = Airport.random.first unless start
-      self.finish = Airport.random.first unless finish
+      self.start = Airport.random unless start
+      self.finish = Airport.random unless finish
     end
 
     write_attribute :aircraft_id, aircraft.id
@@ -126,7 +126,7 @@ class Flight < ActiveRecord::Base
           @current_waypoint.airport.latitude,
           @current_waypoint.airport.longitude,
           @aircraft.range
-        ).random.first
+        ).random
       else
         @next_airport = start
       end
