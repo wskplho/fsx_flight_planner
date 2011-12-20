@@ -30,7 +30,7 @@ function initialize()
     waypoints.push(waypoint);
   });
 
-  var latitudes    = waypoints.map(function(i){ return i.latitude; })
+  var latitudes    = waypoints.map(function(i){ return i.latitude; }),
       longitudes   = waypoints.map(function(i){ return i.longitude; }),
       minLatitude  = Math.min.apply(null, latitudes),
       maxLatitude  = Math.max.apply(null, latitudes),
@@ -47,11 +47,11 @@ function initialize()
       },
       map = new google.maps.Map(mapJquery[0], myOptions);
   
-  for each ( var waypoint in waypoints )
+  for ( var i in waypoints )
   {
     new google.maps.Marker({
-      position: waypoint.point,
-      title: waypoint.code + ' ' + waypoint.name + ' ' + waypoint.country,
+      position: waypoints[i].point,
+      title: waypoints[i].code + ' ' + waypoints[i].name + ' ' + waypoints[i].country,
       map: map
     });
   }
