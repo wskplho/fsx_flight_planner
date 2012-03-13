@@ -1,8 +1,8 @@
 GIT
-  remote: git://github.com/bseanvt/yaml_db.git
-  revision: 14ebdb79805d71501fbd742e52ad7887765138dc
+  remote: git://github.com/lostapathy/yaml_db.git
+  revision: 98e9a5dca43e3fedd3268c76a73af40d1bdf1dfd
   specs:
-    yaml_db (0.2.0)
+    yaml_db (0.2.2)
 
 GEM
   remote: http://rubygems.org/

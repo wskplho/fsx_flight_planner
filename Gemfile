@@ -10,7 +10,7 @@ gem 'meta_where'
 gem 'haml'
 gem 'sass'
 gem 'rails3-jquery-autocomplete'
-gem 'yaml_db', :git => 'git://github.com/bseanvt/yaml_db.git'
+gem 'yaml_db', :git => 'git://github.com/lostapathy/yaml_db.git' # Arel query fix
 gem 'randumb' # randomize records!
 
 # Use unicorn as the web server
