@@ -15,13 +15,14 @@ If you don't select a country, it will search airports in all countries.
 It shows the flight path on a Google map along with waypoints data.
 
 ## Requirements
-Ruby 1.9.2, Rails, MySQL, Apache2 etc.
+Ruby 1.9.3+, Rails, MySQL, Apache2 etc.
 This means you better have a Linux/Mac laptop nearby.
 
 ## Fastest Installation
     git clone git://github.com/ollie/fsx_flight_planner.git
     cd fsx_flight_planner
     bundle install
+    cp config/database.yml.example config/database.yml # You might need to edit this
     rake db:create db:migrate db:data:load:latest
     rails s
 Open a browser and go to http://127.0.0.1:3000/.
@@ -40,3 +41,9 @@ It does the following:
 * Saves airport names (they are not in fs10.Airports.dat file).
 
 This might take around 20 minutes or so.
+
+## Warning
+I have a few ideas which I would like to implement sooner or later: Saving checkpoints or full plans into the database so they could be restored, edited, maybe even exported, things like that. Right now it's rather static and not very useful, but still more fun than the default FSX planner. :) There might be bugs so please let me know if you find anything.
+
+## Known bugs
+Then map is not centered correctly when route goes over the 0 (or 360) degs of longitude.
