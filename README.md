@@ -48,4 +48,7 @@ This might take around 20 minutes or so.
 I have a few ideas which I would like to implement sooner or later: Saving checkpoints or full plans into the database so they could be restored, edited, maybe even exported, things like that. Right now it's rather static and not very useful, but still more fun than the default FSX planner. :) There might be bugs so please let me know if you find anything.
 
 ## Known bugs
-Then map is not centered correctly when route goes over the 0 (or 360) degs of longitude.
+* The map is not centered correctly when route goes over the 0 (or 360) degs of longitude.
+
+## License
+You may do whatever you want with this piece of software.
