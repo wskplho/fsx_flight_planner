@@ -24,6 +24,8 @@ This means you better have a Linux/Mac laptop nearby.
     bundle install
     cp config/database.yml.example config/database.yml # You might need to edit this
     rake db:create db:migrate db:data:load:latest
+    # Or if rake fails for some reason, try this
+    bundle exec rake db:create db:migrate db:data:load:latest
     rails s
 Open a browser and go to http://127.0.0.1:3000/.
 
