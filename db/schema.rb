@@ -21,8 +21,8 @@ ActiveRecord::Schema.define(:version => 20110819214206) do
     t.boolean  "propeller",    :default => false
     t.boolean  "helicopter",   :default => false
     t.boolean  "water",        :default => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
   end
 
   create_table "airports", :force => true do |t|
@@ -33,16 +33,16 @@ ActiveRecord::Schema.define(:version => 20110819214206) do
     t.decimal  "latitude",       :precision => 12, :scale => 9
     t.decimal  "longitude",      :precision => 12, :scale => 9
     t.integer  "elevation"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                                    :null => false
+    t.datetime "updated_at",                                    :null => false
   end
 
   add_index "airports", ["country_id"], :name => "index_airports_on_country_id"
 
   create_table "countries", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "flights", :force => true do |t|
@@ -53,8 +53,8 @@ ActiveRecord::Schema.define(:version => 20110819214206) do
     t.string   "start_code"
     t.string   "finish_code"
     t.integer  "no_of_waypoints", :default => 2
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
   end
 
   create_table "runways", :force => true do |t|
@@ -62,8 +62,8 @@ ActiveRecord::Schema.define(:version => 20110819214206) do
     t.integer  "length"
     t.integer  "elevation"
     t.boolean  "hard"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   add_index "runways", ["airport_id"], :name => "index_runways_on_airport_id"

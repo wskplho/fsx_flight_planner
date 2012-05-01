@@ -1,0 +1,13 @@
+en:
+  my:
+    title: FSX
+    go_to_home: Back to Homepage
+    back: ← Back
+    choose: Choose
+    submit: Create a plan
+    reset: Reset
+    chance: Chance
+    flights:
+      new: New Flight Plan
+      span_title: Aircraft range %{range} NM, %{waypoints} waypoints
+      cannot_find_next_waypoint: I'm sorry, I can't find a way to %{airport} %{country}.

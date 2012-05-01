@@ -1,0 +1,19 @@
+cs:
+  activerecord:
+    attributes:
+      flight:
+        aircraft_name: Letadlo
+        aircraft_id: Letadlo
+        country_name: Země
+        country_id: Země
+        start_code: Start
+        finish_code: Cíl
+      waypoint:
+        number: Č.
+        code: Kód
+        name: Název
+        country: Země
+        latitude: Latitude
+        longitude: Longitude
+        distance: Vzd.
+        total: Celk.

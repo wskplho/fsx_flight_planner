@@ -1,0 +1,19 @@
+en:
+  activerecord:
+    attributes:
+      flight:
+        aircraft_name: Aircraft
+        aircraft_id: Aircraft
+        country_name: Country
+        country_id: Country
+        start_code: Start
+        finish_code: Finish
+      waypoint:
+        number: No.
+        code: Code
+        name: Name
+        country: Country
+        latitude: Latitude
+        longitude: Longitude
+        distance: Dist.
+        total: Total

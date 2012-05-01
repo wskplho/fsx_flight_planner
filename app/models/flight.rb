@@ -1,5 +1,7 @@
 class Flight < ActiveRecord::Base
-  attr_accessor :aircraft_set, :country_set, :start_set, :finish_set, :first_waypoint, :total_distance, :eta, :cannot_find_next_waypoint
+  attr_accessible :start_code, :finish_code, :country_name, :aircraft_id
+  attr_accessor :aircraft_set, :country_set, :start_set, :finish_set, :first_waypoint,
+    :total_distance, :eta, :cannot_find_next_waypoint
   attr_writer :aircraft, :country, :start, :finish
 
   def start_code=(value)

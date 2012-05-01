@@ -1,0 +1,14 @@
+cs:
+  my:
+    title: FSX
+    go_to_home: Na úvodní stranu
+    back: ← Zpět
+    choose: Vyber
+    submit: Vytvoř
+    reset: Vynulovat
+    chance: Náhoda
+    flights:
+      new: Nový plán
+      create: A jedem
+      span_title: Dolet %{range} NM, %{waypoints} waypointů
+      cannot_find_next_waypoint: Bohužel nelze najít cestu až do %{airport} %{country}.
