@@ -1,18 +1,18 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.3'
+gem 'rails', '3.2.9'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'mysql2'               # Database
-gem 'squeel'               # ActiveRecord search extensions
-gem 'haml'                 # Templating
-gem 'sass'                 # Templating
-gem 'rails3-jquery-autocomplete'
+gem 'mysql2',                     '~> 0.3.11' # Database
+gem 'squeel',                     '~> 1.0.13' # ActiveRecord search extensions
+gem 'haml',                       '~> 3.1.7'  # Templating
+gem 'rails3-jquery-autocomplete', '~> 1.0.10'
 gem 'yaml_db', git: 'git://github.com/lostapathy/yaml_db.git' # Data dumping, Arel query fix
-# gem 'draper'               # Decorators
-gem 'randumb'              # Randomize records
+gem 'randumb',                    '~> 0.3.0'  # Randomize records
+
+gem 'pry', :group => :development
 
 # group :test do
 #   # Pretty printed test output
@@ -40,7 +40,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails'
+gem 'jquery-rails', '~> 2.1.3'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -53,8 +53,8 @@ gem 'jquery-rails'
 # gem 'thin', :group => :development
 
 # Deploy with Capistrano
-gem 'capistrano'
-# gem 'rvm-capistrano'
+gem 'capistrano',     '~> 2.13.5'
+gem 'rvm-capistrano', '~> 1.2.7'
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'

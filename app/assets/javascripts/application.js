@@ -12,6 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery-ui-1.8.15.custom.min
+//= require jquery-ui-1.9.1.custom.min
 //= require autocomplete-rails
 //= require common
