@@ -54,7 +54,6 @@ gem 'jquery-rails', '~> 2.1.3'
 
 # Deploy with Capistrano
 gem 'capistrano',     '~> 2.13.5'
-gem 'rvm-capistrano', '~> 1.2.7'
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
